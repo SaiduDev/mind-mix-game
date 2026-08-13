@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Game - SpellPack</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/game.css">
+  <script>
+    document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+  </script>
+</head>
+<body>
+  <div class="game-page">
+    <header class="app-header">
+      <div class="app-header__brand">
+        <span class="app-header__brand-icon">📦</span>
+        SpellPack
+      </div>
+      <div class="app-header__actions">
+        <span id="difficulty-badge" class="difficulty-badge difficulty-badge--easy">easy</span>
+        <button id="theme-toggle" class="btn-icon theme-toggle" aria-label="Toggle dark mode">
+          <span class="theme-toggle__icon theme-toggle__icon--sun">☀️</span>
+          <span class="theme-toggle__icon theme-toggle__icon--moon">🌙</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="game-container">
+      <div class="game-hud">
+        <div class="game-hud__item game-hud__level">
+          <span class="game-hud__label">Level</span>
+          <span class="game-hud__value" id="game-level">1</span>
+        </div>
+        <div class="game-hud__item">
+          <span class="game-hud__label">Score</span>
+          <span class="game-hud__value" id="game-score">0</span>
+        </div>
+      </div>
+
+      <div class="game-timer">
+        <div class="game-timer__fill" id="timer-fill" style="width: 100%"></div>
+      </div>
+
+      <div class="game-hint">
+        <div class="game-hint__label">Hint</div>
+        <div class="game-hint__text" id="game-hint-text">Loading...</div>
+      </div>
+
+      <div class="game-slots" id="game-slots" aria-label="Word letter slots"></div>
+
+      <div class="game-letters" id="game-letters" aria-label="Available letters"></div>
+
+      <div class="game-actions">
+        <button id="btn-clear" class="btn btn-secondary">Clear</button>
+        <button id="btn-shuffle" class="btn btn-secondary">Shuffle</button>
+        <button id="btn-check" class="btn btn-success">Check</button>
+        <button id="btn-exit" class="btn btn-danger btn-sm">Exit</button>
+      </div>
+    </div>
+
+    <!-- Feedback Overlay -->
+    <div id="game-feedback" class="game-feedback" hidden>
+      <div class="game-feedback__card">
+        <div class="game-feedback__icon" id="feedback-icon">🎉</div>
+        <h2 class="game-feedback__title" id="feedback-title">Correct!</h2>
+        <p class="game-feedback__message" id="feedback-message">Great job!</p>
+        <p class="game-feedback__score" id="feedback-score">+100 points</p>
+        <div class="game-feedback__actions">
+          <button id="feedback-retry" class="btn btn-secondary btn-block" hidden>Try Again</button>
+          <button id="feedback-next" class="btn btn-primary btn-block">Next Level</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>

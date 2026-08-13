@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Dashboard - SpellPack</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <script>
+    document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+  </script>
+</head>
+<body>
+  <div class="app-shell dashboard-page">
+    <header class="app-header">
+      <div class="app-header__brand">
+        <span class="app-header__brand-icon">📦</span>
+        SpellPack
+      </div>
+      <div class="app-header__actions">
+        <button id="theme-toggle" class="btn-icon theme-toggle" aria-label="Toggle dark mode">
+          <span class="theme-toggle__icon theme-toggle__icon--sun">☀️</span>
+          <span class="theme-toggle__icon theme-toggle__icon--moon">🌙</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <div id="dashboard-loading" class="loading-screen">
+        <div class="spinner"></div>
+        <p class="text-muted">Loading dashboard...</p>
+      </div>
+
+      <div id="dashboard-content" hidden>
+        <section class="dashboard-greeting">
+          <h2 id="user-greeting">Welcome back!</h2>
+          <p>Ready to pack some letters today?</p>
+        </section>
+
+        <section class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-card__icon stat-card__icon--level">🎯</span>
+            <span class="stat-card__label">Current Level</span>
+            <span class="stat-card__value" id="stat-level">1</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__icon stat-card__icon--score">⭐</span>
+            <span class="stat-card__label">Total Score</span>
+            <span class="stat-card__value" id="stat-score">0</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__icon stat-card__icon--completed">✅</span>
+            <span class="stat-card__label">Completed</span>
+            <span class="stat-card__value" id="stat-completed">0</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__icon stat-card__icon--streak">📊</span>
+            <span class="stat-card__label">Total Levels</span>
+            <span class="stat-card__value" id="stat-total">210</span>
+          </div>
+        </section>
+
+        <section class="action-cards">
+          <a href="#" id="continue-game" class="action-card action-card--continue">
+            <span class="action-card__icon">▶️</span>
+            <div class="action-card__content">
+              <div class="action-card__title">Continue Game</div>
+              <div class="action-card__subtitle">Resume at <span id="continue-level">Level 1</span></div>
+            </div>
+            <span class="action-card__arrow">›</span>
+          </a>
+          <a href="game.html" id="play-new" class="action-card action-card--primary">
+            <span class="action-card__icon">🎮</span>
+            <div class="action-card__content">
+              <div class="action-card__title">Play Game</div>
+              <div class="action-card__subtitle">Start spelling and packing letters</div>
+            </div>
+            <span class="action-card__arrow">›</span>
+          </a>
+        </section>
+
+        <section class="progress-section">
+          <div class="progress-section__header">
+            <h3>Your Progress</h3>
+            <span class="progress-section__percent" id="progress-percent">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-bar__fill" id="progress-fill" style="width: 0%"></div>
+          </div>
+          <div class="progress-section__footer">
+            <span id="progress-completed">0 completed</span>
+            <span id="progress-remaining">210 remaining</span>
+          </div>
+        </section>
+
+        <section class="level-preview">
+          <h3>Level Map</h3>
+          <div class="level-preview__grid" id="level-preview-grid"></div>
+        </section>
+      </div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <a href="dashboard.html" class="bottom-nav__item active" data-page="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Home
+      </a>
+      <a href="game.html" class="bottom-nav__item" data-page="game">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/></svg>
+        Play
+      </a>
+      <a href="profile.html" class="bottom-nav__item" data-page="profile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Profile
+      </a>
+    </nav>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

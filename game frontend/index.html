@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Spelling Packing Game - Learn spelling through fun word puzzles">
+  <title>SpellPack - Spelling Packing Game</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <script>
+    document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+  </script>
+</head>
+<body>
+  <div class="landing-page">
+    <header class="landing-header">
+      <a href="index.html" class="auth-page__logo">
+        <span class="auth-page__logo-icon">📦</span>
+        SpellPack
+      </a>
+      <button id="theme-toggle" class="btn-icon theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+        <span class="theme-toggle__icon theme-toggle__icon--sun">☀️</span>
+        <span class="theme-toggle__icon theme-toggle__icon--moon">🌙</span>
+      </button>
+    </header>
+
+    <main class="landing-hero">
+      <span class="landing-hero__badge">🎮 210+ Levels</span>
+      <h1 class="landing-hero__title">Pack Letters, <span>Master Spelling</span></h1>
+      <p class="landing-hero__subtitle">A fun educational word game where you pack scrambled letters into the correct spelling. Progressive difficulty from easy to expert!</p>
+
+      <div class="landing-features">
+        <div class="landing-feature">
+          <span class="landing-feature__icon">📚</span>
+          <span class="landing-feature__text">210+ Levels</span>
+        </div>
+        <div class="landing-feature">
+          <span class="landing-feature__icon">🏆</span>
+          <span class="landing-feature__text">Score Tracking</span>
+        </div>
+        <div class="landing-feature">
+          <span class="landing-feature__icon">📱</span>
+          <span class="landing-feature__text">Mobile Friendly</span>
+        </div>
+      </div>
+
+      <div class="landing-hero__actions">
+        <a href="signup.html" class="btn btn-primary btn-lg">Get Started</a>
+        <a href="signin.html" class="btn btn-outline btn-lg">Sign In</a>
+        <a href="dashboard.html" id="hero-continue" class="btn btn-secondary btn-lg" hidden>Go to Dashboard</a>
+      </div>
+    </main>
+
+    <footer class="landing-footer">
+      <p>&copy; 2026 SpellPack. Learn spelling the fun way.</p>
+    </footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script>Auth.initLanding();</script>
+</body>
+</html>

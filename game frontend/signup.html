@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Sign Up - SpellPack</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <script>
+    document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light');
+  </script>
+</head>
+<body>
+  <div class="auth-page">
+    <header class="auth-page__header">
+      <a href="index.html" class="auth-page__logo">
+        <span class="auth-page__logo-icon">📦</span>
+        SpellPack
+      </a>
+      <button id="theme-toggle" class="btn-icon theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+        <span class="theme-toggle__icon theme-toggle__icon--sun">☀️</span>
+        <span class="theme-toggle__icon theme-toggle__icon--moon">🌙</span>
+      </button>
+    </header>
+
+    <main class="auth-page__body">
+      <div class="auth-card">
+        <div class="auth-card__header">
+          <h1>Create Account</h1>
+          <p>Join SpellPack and start your spelling adventure</p>
+        </div>
+
+        <form id="signup-form" novalidate>
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="John Doe" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="johndoe" required autocomplete="username">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Min. 6 characters" required autocomplete="new-password">
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Repeat password" required autocomplete="new-password">
+          </div>
+          <label class="form-checkbox mb-md">
+            <input type="checkbox" name="remember" checked>
+            Remember me
+          </label>
+          <button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
+        </form>
+
+        <div class="auth-card__footer">
+          Already have an account? <a href="signin.html">Sign In</a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script>Auth.initSignUp();</script>
+</body>
+</html>
