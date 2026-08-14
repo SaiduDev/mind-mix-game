@@ -4,7 +4,7 @@
 
 const API = (() => {
   // Configure your backend base URL here
-  const BASE_URL = window.API_BASE_URL || 'http://localhost:3000/api';
+  const BASE_URL = window.API_BASE_URL || 'http://localhost:8080/api';
 
   const TOKEN_KEY = 'authToken';
 
@@ -102,7 +102,7 @@ const API = (() => {
 
   /** POST /signup */
   async function signup({ name, username, email, password }) {
-    return request('/signup', {
+    return request('/auth/signUp', {
       method: 'POST',
       body: JSON.stringify({ name, username, email, password }),
     });
@@ -110,7 +110,7 @@ const API = (() => {
 
   /** POST /signin */
   async function signin({ email, password }) {
-    return request('/signin', {
+    return request('/auth/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
     });
@@ -118,7 +118,7 @@ const API = (() => {
 
   /** GET /profile */
   async function getProfile() {
-    return request('/profile', { method: 'GET' });
+    return request('/user/profile', { method: 'GET' });
   }
 
   return {
