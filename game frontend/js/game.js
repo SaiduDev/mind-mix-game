@@ -575,18 +575,39 @@ const SpellingGame = (() => {
       updateLetterDisplay();
     });
 
-    document.getElementById('btn-shuffle')?.addEventListener('click', () => {
-      if (!state.isPlaying) return;
-      const unused = state.letters.filter((l) => !l.used);
-      const shuffled = shuffleArray(unused);
-      let si = 0;
-      state.letters.forEach((l) => { if (!l.used) l.letter = shuffled[si++].letter; });
-      const container = document.getElementById('game-letters');
-      if (container) {
-        const tiles = container.querySelectorAll('.letter-tile');
-        state.letters.forEach((l, i) => { if (!l.used && tiles[i]) tiles[i].textContent = l.letter; });
+   document.getElementById('btn-shuffle')?.addEventListener('click', () => {
+  if (!state.isPlaying) return;
+
+  const unusedIndexes = [];
+
+  state.letters.forEach((letter, index) => {
+    if (!letter.used) {
+      unusedIndexes.push(index);
+    }
+  });
+
+  const unusedLetters = unusedIndexes.map(
+    index => state.letters[index].letter
+  );
+
+  const shuffledLetters = shuffleArray(unusedLetters);
+
+  unusedIndexes.forEach((index, i) => {
+    state.letters[index].letter = shuffledLetters[i];
+  });
+
+  const container = document.getElementById('game-letters');
+
+  if (container) {
+    const tiles = container.querySelectorAll('.letter-tile');
+
+    state.letters.forEach((letter, i) => {
+      if (!letter.used && tiles[i]) {
+        tiles[i].textContent = letter.letter;
       }
     });
+  }
+});
 
     document.getElementById('btn-check')?.addEventListener('click', () => {
       if (!state.isPlaying) return;

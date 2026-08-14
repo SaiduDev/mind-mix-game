@@ -176,7 +176,9 @@
   padding: var(--spacing-md);
   animation: fadeIn 0.3s ease;
 }
-
+.game-feedback[hidden] {
+  display: none !important;
+}
 .game-feedback__card {
   background: var(--bg-card);
   border-radius: var(--border-radius-xl);
