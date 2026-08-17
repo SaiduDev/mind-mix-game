@@ -502,7 +502,7 @@ const SpellingGame = (() => {
     document.getElementById('feedback-title').textContent = success ? 'Correct!' : 'Try Again';
     document.getElementById('feedback-message').textContent = success
       ? `You packed "${word}" perfectly!`
-      : `The correct word was "${word}". Keep practicing!`;
+      : `Don't Give Up 💪. Keep practicing!`;
     document.getElementById('feedback-score').textContent = success ? `+${earned} points` : '';
     document.getElementById('feedback-score').hidden = !success;
 
@@ -521,10 +521,13 @@ const SpellingGame = (() => {
         };
       }
       retryBtn.hidden = true;
+            nextBtn.style.display ="flex";
+
       nextBtn.hidden = false;
     } else {
       retryBtn.hidden = false;
       nextBtn.hidden = true;
+      nextBtn.style.display ="none";
       retryBtn.onclick = () => { overlay.hidden = true; startLevel(state.currentLevel); };
     }
   }

@@ -72,6 +72,7 @@
   text-decoration: none;
   color: inherit;
   min-height: var(--touch-target);
+  margin: 15px;
 }
 
 .action-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); border-color: var(--color-primary); }
