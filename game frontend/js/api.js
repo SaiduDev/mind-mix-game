@@ -4,7 +4,7 @@
 
 const API = (() => {
   // Configure your backend base URL here
-  const BASE_URL = window.API_BASE_URL || 'http://localhost:8080/api';
+  const BASE_URL = window.API_BASE_URL || 'https://mixmind-backend-api.onrender.com/api';
 
   const TOKEN_KEY = 'authToken';
 
